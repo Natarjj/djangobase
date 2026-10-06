@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-</head>
-<body>
+{% extends 'cadastro/base.html' %}
+
+{% block titulo %}Início{% endblock %}
+
+{% block conteudo %}
     <h1>Olá, {{ nome }}!</h1>
     <p>Você tem {{ idade }} anos.</p>
-</body>
+
+    <h2>Frutas:</h2>
+    <ul>
+        {% for fruta in frutas %}
+            <li>{{ fruta }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

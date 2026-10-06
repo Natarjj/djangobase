@@ -4,9 +4,15 @@ def index(request):
     contexto = {
         'nome': 'Joca',
         'idade': 30,
+        'frutas':['Maçã', 'Banana', 'Laranja', 'Uva'],
         }
-    return render(request, 'cadastro/index.html',contexto)
+    return render(request, 'cadastro/index.html', contexto)
 
 def contato(request):
-    contexto= dict()
-    return render(request, 'cadastro/contato.html', contexto)
+    contexto= {
+        "nome" : "joquinha"
+    }
+    return render(
+        request,
+          'cadastro/contato.html', 
+          contexto)
