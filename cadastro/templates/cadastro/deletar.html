@@ -1,0 +1,19 @@
+ Crie o arquivo cadastro/templates/cadastro/deletar.html:
+{% extends 'cadastro/base.html' %}
+
+{% block titulo %}Cadastro - Apagar {{ pessoa.nome }}{% endblock %}
+
+{% block conteudo %}
+<article>
+    <h2>Deletar {{ pessoa.nome }}?</h2>
+    <p>Essa ação não pode ser desfeita!</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Confirmar</button>
+        <a href="/pessoa/{{ pessoa.id }}/">Cancelar</a>
+    </form>
+
+    </article>
+
+    {% endblock %}
