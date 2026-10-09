@@ -1,7 +1,6 @@
-from unicodedata import name
 from django.shortcuts import get_object_or_404, redirect, render
-
-from cadastro.forms import ContatoForm, PessoaForm
+from django.contrib.auth.decorators import login_required
+from cadastro.forms import ContatoForm, PessoaForm 
 from cadastro.models import Pessoa
 
 def index(request):
@@ -35,7 +34,7 @@ def contato(request):
           {'form': form, 'nome' : 'Joca'}
           )
            
-
+@login_required
 def adicionar(request):
     # Se o form está sendo enviando
     if request.method == 'POST':

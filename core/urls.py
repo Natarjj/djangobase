@@ -19,5 +19,10 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # Rota para o aplicativo "cadastro"
     path('', include('cadastro.urls')),
+
+    # Gestão de contas de usúarios
+    path('accounts/', include('django.contrib.auth.urls')),
 ]           

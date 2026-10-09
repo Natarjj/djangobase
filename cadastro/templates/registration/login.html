@@ -1,0 +1,15 @@
+{% extends 'cadastro/base.html' %}
+
+{% block titulo %}Login{% endblock %}
+
+{% block conteudo %}
+<section>
+    <h1>Login</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Entrar</button>
+    </form>
+    </section>
+{% endblock %}

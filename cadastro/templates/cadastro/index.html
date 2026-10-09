@@ -1,6 +1,6 @@
 {% extends 'cadastro/base.html' %}
 
-{% block titulo %}Início{% endblock %}
+{% block titulo %}Cadastro{% endblock%}
 
 {% block conteudo %}
 
@@ -8,21 +8,29 @@
 
     <h2>Pessoas Cadastradas</h2>
 
-{% if total == 0 %}
-<p>Ooops! Cadastre alguém primeiro!</p>
+    {% if user.is_authenticated %}
+    <p>Usuário {{ user.username }} com e-mail {{ user.email }} está aqui</p>
+    <p>{{ user.first_name }} {{ user.last_name }}</p>
+    {% else %}
+    <p>Loga aí, por favor!</p>
+    {% endif %}
 
-{% else %}
+    {% if total == 0 %}
 
-{% for pessoa in pessoas%}
-<ul>
-    <li>Nome: {{ pessoa.nome }}</li>
-    <li>E-mail {{ pessoa.email }} </li>
-    <li>Idade: {{ pessoa.idade }}</li>
-    <li><a href="/pessoa/{{ pessoa.id}}"> Ver detalhes</a></li>
-</ul>
-{% endfor %} 
+    <p>Ooops! Cadastre alguém primeiro!</p>
 
-{% endif %}
+    {% else %}
+
+    {% for pessoa in pessoas %}
+    <ul>
+        <li>Nome: {{ pessoa.nome }}</li>
+        <li>E-mail: {{ pessoa.email }}</li>
+        <li>Idade: {{ pessoa.idade }}</li>
+        <li><a href="/pessoa/{{ pessoa.id }}">Ver detalhes</a></li>
+    </ul>
+    {% endfor %}
+
+    {% endif %}
 
 </section>
 

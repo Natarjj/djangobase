@@ -4,7 +4,15 @@
 
 {% block conteudo %}
 <article>
-    <h1>Faça Contato!</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    
+       <h2>Faça Contato</h2>
+    <p>Preencha todos os campos do formulário abaixo para entrar e contato com e equipe do site.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p><button type="submit">Enviar</button></p>
+    </form>
+
     <article>
 {% endblock %}

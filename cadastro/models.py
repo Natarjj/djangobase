@@ -8,7 +8,7 @@ class Pessoa(models.Model):
     def __str__(self):
         return self.nome
     
-class Contato(models.model):
+class Contato(models.Model):
     nome = models.CharField(max_length=100)
     email = models.EmailField()
     assunto = models.CharField()
